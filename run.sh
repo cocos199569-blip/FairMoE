@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 # FairMoE Bail experiment.
-# This is the configuration recorded in the project logs for:
-# AUCROC 90.49 +/- 0.58, F1 80.70 +/- 0.87.
 
 set -e
 
