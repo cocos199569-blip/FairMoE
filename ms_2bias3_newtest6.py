@@ -618,7 +618,7 @@ class FairMoE(torch.nn.Module):
         # 可学习权重融合（权重和为1，增强稳定性）
         weight1_normalized = torch.sigmoid(self.weight1)
         # weight2_normalized = 1 - weight1_normalized
-        weight2_normalized = torch.sigmoid(self.weight2) #❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+        weight2_normalized = torch.sigmoid(self.weight2) 
         h_fair = weight1_normalized * h_scale1 + weight2_normalized * h_scale2
         h_masked = self.masker(h_fair)
         out_fair = self.classifier_fair(h_masked)
@@ -1065,7 +1065,7 @@ class FairMoE(torch.nn.Module):
                             res_val = base_score - self.constraint_penalty_weight * violation
                     else:
                         res_val = base_score
-                    # res_val =  f1_val + 1.8 * roc_val❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗❗
+                    # res_val =  f1_val + 1.8 * roc_val
                 else: #“fair”模式下
                     res_val = acc_val + roc_val - parity - equality
 
